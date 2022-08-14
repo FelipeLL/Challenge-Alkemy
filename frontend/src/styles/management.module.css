@@ -126,7 +126,6 @@
   width: calc(100% - 250px);
   padding: 10px 14px;
   transition: all 0.5s ease;
-  background-color: #eef4f7;
 }
 
 .close ~ .content {
