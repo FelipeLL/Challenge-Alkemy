@@ -1,7 +1,21 @@
 import styles from "../styles/income.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import EditModal from "./EditModal";
+import DeleteModal from "./DeleteModal";
 const Income = () => {
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const handleDelete = () => {
+    setShowDeleteModal(true);
+  };
+
+  const handleUpdate = () => {
+    setShowEditModal(true);
+  };
+
   return (
     <>
       <div className={styles["income-content"]}>
@@ -45,11 +59,28 @@ const Income = () => {
               className={`${styles["col"]} ${styles["col-5"]}`}
               data-label="Amount"
             >
-              <FontAwesomeIcon icon={faTrashCan} className={styles.delete} />
-              <FontAwesomeIcon icon={faPenToSquare} className={styles.update} />
+              <FontAwesomeIcon
+                icon={faTrashCan}
+                className={styles.delete}
+                onClick={handleDelete}
+              />
+              <FontAwesomeIcon
+                icon={faPenToSquare}
+                className={styles.update}
+                onClick={handleUpdate}
+              />
             </div>
           </li>
         </ul>
+
+        <EditModal
+          showEditModal={showEditModal}
+          setShowEditModal={setShowEditModal}
+        />
+        <DeleteModal
+          showDeleteModal={showDeleteModal}
+          setShowDeleteModal={setShowDeleteModal}
+        />
       </div>
     </>
   );

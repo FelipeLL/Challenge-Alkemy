@@ -1,31 +1,24 @@
 import styles from "../styles/modal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-
-const Modal = () => {
-  const [showModal, setShowModal] = useState(false);
-
+const DeleteModal = ({ showDeleteModal, setShowDeleteModal }) => {
   return (
     <section
       className={
-        showModal ? `${styles.section} ${styles["active"]}` : styles.section
+        showDeleteModal
+          ? `${styles.section} ${styles["active"]}`
+          : styles.section
       }
     >
-      <div className="profile">
-        <div className="button">
-          <i className="bx bxs-envelope"></i>
-          <button onClick={() => setShowModal(true)}>Hire Me</button>
-        </div>
-      </div>
       <div className={`${styles["popup-outer"]}`}>
         <div className={styles["popup-box"]}>
           <div className={styles["box-header"]}>
-            <p>Edit/Delete</p>
+            <p>Delete</p>
+
             <FontAwesomeIcon
               icon={faRectangleXmark}
               className={styles.close}
-              onClick={() => setShowModal(false)}
+              onClick={() => setShowDeleteModal(false)}
             />
           </div>
 
@@ -38,7 +31,7 @@ const Modal = () => {
             <button
               id="close"
               className={styles.cancel}
-              onClick={() => setShowModal(false)}
+              onClick={() => setShowDeleteModal(false)}
             >
               Cancel
             </button>
@@ -50,4 +43,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default DeleteModal;
