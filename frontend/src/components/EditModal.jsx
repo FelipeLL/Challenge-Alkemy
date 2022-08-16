@@ -13,11 +13,6 @@ const EditModal = ({ showEditModal, setShowEditModal }) => {
   } = useForm();
   const { required } = formValidate();
 
-  const initialState = {
-    under: "",
-    amount: "",
-  };
-
   const onSubmit = async (data) => {
     try {
       alert("send");

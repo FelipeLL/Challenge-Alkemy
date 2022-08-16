@@ -164,6 +164,10 @@
   text-align: center;
 }
 
+.icon-row {
+  color: #7fbb00;
+}
+
 @media (max-width: 1300px) {
   .home-content {
     flex-direction: column;

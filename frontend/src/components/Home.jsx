@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSackDollar,
   faCircleDollarToSlot,
+  faArrowTrendDown,
+  faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
 const Home = () => {
   return (
@@ -55,7 +57,7 @@ const Home = () => {
       <div className={styles["container-2"]}>
         <ul className={styles["responsive-table"]}>
           <li className={styles["table-header"]}>
-            <div className={`${styles["col"]} ${styles["col-1"]}`}>ID</div>
+            <div className={`${styles["col"]} ${styles["col-1"]}`}>I/E</div>
             <div className={`${styles["col"]} ${styles["col-2"]}`}>DATE</div>
             <div className={`${styles["col"]} ${styles["col-3"]}`}>TYPE</div>
             <div className={`${styles["col"]} ${styles["col-4"]}`}>AMOUNT</div>
@@ -65,241 +67,10 @@ const Home = () => {
               className={`${styles["col"]} ${styles["col-1"]}`}
               data-label="ID"
             >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-2"]}`}
-              data-label="Date"
-            >
-              10/08/2022
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-3"]}`}
-              data-label="Type"
-            >
-              Income
-            </div>
-            <div
-              className={`${styles["col"]} ${styles["col-4"]}`}
-              data-label="Amount"
-            >
-              $350
-            </div>
-          </li>
-          <li className={styles["table-row"]}>
-            <div
-              className={`${styles["col"]} ${styles["col-1"]}`}
-              data-label="ID"
-            >
-              42
+              <FontAwesomeIcon
+                icon={faArrowTrendUp}
+                className={styles["icon-row"]}
+              />
             </div>
             <div
               className={`${styles["col"]} ${styles["col-2"]}`}

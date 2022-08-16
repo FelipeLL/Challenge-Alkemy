@@ -159,3 +159,9 @@
 .button button.send:hover {
   background: #0085ad;
 }
+
+@media (max-width: 530px) {
+  .section .popup-box {
+    width: 90%;
+  }
+}

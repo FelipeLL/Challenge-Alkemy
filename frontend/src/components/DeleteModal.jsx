@@ -1,4 +1,4 @@
-import styles from "../styles/modal.module.css";
+import styles from "../styles/deleteModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 const DeleteModal = ({ showDeleteModal, setShowDeleteModal }) => {

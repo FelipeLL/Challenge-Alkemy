@@ -5,7 +5,6 @@ const App = () => {
   const [online, setOnline] = useState(false);
   return (
     <div>
-      <h2>app</h2>
       <Outlet />
     </div>
   );
