@@ -1,4 +1,5 @@
 import styles from "../styles/login.module.css";
+import FormError from "../components/FormError";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
@@ -41,7 +42,7 @@ const Login = () => {
                 })}
               />
             </div>
-            {errors.email && <p>Errors email</p>}
+            {errors.email && <FormError error={errors.email} />}
 
             <div className={styles["input-box"]}>
               <input
@@ -55,7 +56,7 @@ const Login = () => {
                 })}
               />
             </div>
-            {errors.password && <p>Errors password</p>}
+            {errors.password && <FormError error={errors.password} />}
 
             <span className={styles["button-box"]}>
               <button>Iniciar Sesión</button>
