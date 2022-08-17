@@ -7,6 +7,8 @@ const Config = {
     database: process.env.DATABASE,
     dbUsername: process.env.DB_USERNAME,
     dbPassword: process.env.DB_PASSWORD,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtCookieExpire: process.env.JWT_COOKIE_EXPIRES,
 
 }
 
