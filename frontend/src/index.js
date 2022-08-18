@@ -8,27 +8,30 @@ import Income from './components/Income';
 import Expense from './components/Expense';
 import Login from './routes/Login';
 import Register from './routes/Register';
+import UserProvider from './context/UserProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
 
-        <Route path='/' element={<App />}>
-          <Route index element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path="/management" element={<Management />} >
-            <Route index element={<Home />} />
-            <Route path='/management/income' element={<Income />} />
-            <Route path='/management/expense' element={<Expense />} />
+          <Route path='/' element={<App />}>
+            <Route index element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path="/management" element={<Management />} >
+              <Route index element={<Home />} />
+              <Route path='/management/income' element={<Income />} />
+              <Route path='/management/expense' element={<Expense />} />
+            </Route>
           </Route>
-        </Route>
 
-      </Routes>
+        </Routes>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );
 

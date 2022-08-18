@@ -1,5 +1,6 @@
 import styles from "../styles/register.module.css";
 import logo from "../images/logoManagement.svg";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
@@ -22,11 +23,16 @@ const Register = () => {
     patternPassword,
   } = formValidate();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     try {
-      alert("send");
+      const URI = "http://localhost:5000/users/create";
+      const user = {
+        email: data.correo,
+        password: data.password,
+      };
+      const res = await axios.post(URI, user);
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   };
 

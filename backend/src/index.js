@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors"
 import cookieParser from "cookie-parser";
 import Config from "./config/environment.js"
 import userRoute from "./routes/userRoute.js"
@@ -9,6 +10,13 @@ const app = express()
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+const corsConfig = {
+    credentials: true,
+    origin: ["http://localhost:3000"]
+}
+
+app.use(cors(corsConfig))
 
 app.use("/users", userRoute)
 app.use("/operations", operationRoute)

@@ -1,4 +1,5 @@
 import styles from "../styles/management.module.css";
+import axios from "axios";
 import profile from "../images/profile_1.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,8 +15,13 @@ import { useState } from "react";
 
 const Management = () => {
   const [siderOn, setSiderOn] = useState(false);
-  const logout = () => {
-    console.log("logout");
+  const logout = async () => {
+    const URI = "http://localhost:5000/users/logout";
+    await axios({
+      method: "get",
+      url: URI,
+      withCredentials: true,
+    });
   };
 
   return (

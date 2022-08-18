@@ -1,11 +1,21 @@
 import styles from "../styles/login.module.css";
+import axios from "axios";
 import FormError from "../components/FormError";
+import { useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { UserContext } from "../context/UserProvider";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
 import logo from "../images/logoManagement.svg";
 
 const Login = () => {
+  const { online, setOnline } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    provideAccess();
+  }, [online]);
+
   const {
     register,
     handleSubmit,
@@ -13,11 +23,27 @@ const Login = () => {
   } = useForm();
   const { required } = formValidate();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     try {
-      alert("send");
+      const URI = "http://localhost:5000/users/login";
+      const res = await axios({
+        method: "post",
+        url: URI,
+        data,
+        withCredentials: true,
+      });
+      setOnline(res.data.results.isOnline);
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
+    }
+  };
+
+  const provideAccess = () => {
+    if (online) {
+      navigate("/management");
+      console.log("usuario online");
+    } else {
+      console.log("usuario offline");
     }
   };
 

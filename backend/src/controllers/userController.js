@@ -17,7 +17,7 @@ export const loginUser = async (req, res) => {
         res.cookie("jwt", results.token, results.cookiesOptions)
         res.json({ results })
     } catch (error) {
-        res.status(500).send(error)
+        res.status(400).send(error)
     }
 }
 
