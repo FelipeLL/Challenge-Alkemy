@@ -1,7 +1,7 @@
 import OperationModel from "../models/OperationModel.js"
 
 export const getAllOperations = async () => {
-    let results = await OperationModel.findAll()
+    let results = await OperationModel.findAll({ limit: 10 })
     return results
 }
 

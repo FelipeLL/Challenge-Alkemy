@@ -94,6 +94,10 @@
   justify-content: center;
 }
 
+.circular-progress.negative {
+  background: conic-gradient(#e4002b 360.6deg, #ededed 0deg);
+}
+
 .circular-progress::before {
   content: "";
   position: absolute;
@@ -108,6 +112,10 @@
   font-size: 32px;
   font-weight: 600;
   color: #0085ad;
+}
+
+.progress-value.negative {
+  color: #e4002b;
 }
 
 .circular-title {
@@ -164,8 +172,17 @@
   text-align: center;
 }
 
-.icon-row {
+.icon-income-row {
   color: #7fbb00;
+}
+
+.icon-expense-row {
+  color: #e4002b;
+}
+
+.table-row span {
+  padding-right: 1px;
+  font-weight: bold;
 }
 
 @media (max-width: 1300px) {
