@@ -17,6 +17,9 @@ const Home = () => {
 
   useEffect(() => {
     getOperations();
+  }, []);
+
+  useEffect(() => {
     getMaxAmountIncome();
     getMaxAmountExpense();
     setBalance((maxIncome - maxExpense).toFixed(2));
