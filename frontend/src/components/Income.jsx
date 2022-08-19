@@ -11,24 +11,28 @@ const Income = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [operations, setOperations] = useState([]);
-  const { upload } = useContext(UserContext);
+  const [idOperation, setIdOperation] = useState([]);
+  const { upload, setUpload } = useContext(UserContext);
 
   useEffect(() => {
     const getOperations = async () => {
       const URI = "http://localhost:5000/operations/incomes";
       const res = await axios.get(URI);
       setOperations(res.data);
+      setUpload(false);
     };
 
     getOperations();
   }, [upload]);
 
-  const handleDelete = () => {
+  const handleDelete = (id) => {
     setShowDeleteModal(true);
+    setIdOperation(id);
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = (id) => {
     setShowEditModal(true);
+    setIdOperation(id);
   };
 
   return (
@@ -79,12 +83,12 @@ const Income = () => {
                 <FontAwesomeIcon
                   icon={faTrashCan}
                   className={styles.delete}
-                  onClick={handleDelete}
+                  onClick={() => handleDelete(operation.ID_operation)}
                 />
                 <FontAwesomeIcon
                   icon={faPenToSquare}
                   className={styles.update}
-                  onClick={handleUpdate}
+                  onClick={() => handleUpdate(operation.ID_operation)}
                 />
               </div>
             </li>
@@ -94,10 +98,12 @@ const Income = () => {
         <EditModal
           showEditModal={showEditModal}
           setShowEditModal={setShowEditModal}
+          idOperation={idOperation}
         />
         <DeleteModal
           showDeleteModal={showDeleteModal}
           setShowDeleteModal={setShowDeleteModal}
+          idOperation={idOperation}
         />
       </div>
     </>

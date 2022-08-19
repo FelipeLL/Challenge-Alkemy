@@ -1,11 +1,14 @@
 import styles from "../styles/editModal.module.css";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 import { formValidate } from "../utilities/formValidate";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { UserContext } from "../context/UserProvider";
+import { useContext } from "react";
+const EditModal = ({ showEditModal, setShowEditModal, idOperation }) => {
+  const { setUpload } = useContext(UserContext);
 
-const EditModal = ({ showEditModal, setShowEditModal }) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +18,10 @@ const EditModal = ({ showEditModal, setShowEditModal }) => {
 
   const onSubmit = async (data) => {
     try {
-      alert("send");
+      const URI = `http://localhost:5000/operations/update/${idOperation}`;
+      await axios.put(URI, data);
+      setUpload(true);
+      setShowEditModal(false);
     } catch (error) {
       console.log("error");
     }
