@@ -8,6 +8,7 @@ import {
   faMoneyBillTransfer,
   faRightFromBracket,
   faMoneyBillTrendUp,
+  faFolderPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 import { Outlet, Link } from "react-router-dom";
@@ -63,6 +64,15 @@ const Management = () => {
                     className={styles.icons}
                   />
                   <span className={styles["link-name"]}>Expense</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/management/add">
+                  <FontAwesomeIcon
+                    icon={faFolderPlus}
+                    className={styles.icons}
+                  />
+                  <span className={styles["link-name"]}>Add</span>
                 </Link>
               </li>
             </ul>

@@ -5,6 +5,7 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [online, setOnline] = useState(false);
   const [upload, setUpload] = useState(false);
+  const [idUser, setIdUser] = useState("");
 
   useEffect(() => {
     readToken();
@@ -18,6 +19,7 @@ const UserProvider = ({ children }) => {
     });
     if (res.data.isToken) {
       setOnline(true);
+      setIdUser(res.data.idUser);
     } else {
       setOnline(null);
     }
@@ -29,6 +31,7 @@ const UserProvider = ({ children }) => {
         setOnline,
         upload,
         setUpload,
+        idUser,
       }}
     >
       {children}

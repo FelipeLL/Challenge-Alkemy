@@ -7,8 +7,7 @@ import {
   faArrowTrendDown,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Home = () => {
   const [operations, setOperations] = useState([]);
   const [maxIncome, setMaxIncome] = useState(0);
@@ -22,6 +21,7 @@ const Home = () => {
   useEffect(() => {
     getMaxAmountIncome();
     getMaxAmountExpense();
+
     setBalance((maxIncome - maxExpense).toFixed(2));
   }, [operations]);
 
@@ -33,23 +33,28 @@ const Home = () => {
 
   const getMaxAmountIncome = () => {
     if (operations.length !== 0) {
-      const max = operations
+      const incomes = operations
         .filter((operation) => operation.type === "income")
-        .map((item) => item.amount)
-        .reduce((acc, current) => acc + current);
+        .map((item) => item.amount);
 
-      setMaxIncome(parseFloat(max.toFixed(2)));
+      if (incomes.length !== 0) {
+        const max = incomes.reduce((acc, current) => acc + current);
+        setMaxIncome(parseFloat(max.toFixed(2)));
+      }
     }
   };
 
   const getMaxAmountExpense = () => {
     if (operations.length !== 0) {
-      const max = operations
+      const expenses = operations
         .filter((operation) => operation.type === "expense")
-        .map((item) => item.amount)
-        .reduce((acc, current) => acc + current);
+        .map((item) => item.amount);
 
-      setMaxExpense(parseFloat(max.toFixed(2)));
+      if (expenses.length !== 0) {
+        console.log(expenses);
+        const max = expenses.reduce((acc, current) => acc + current);
+        setMaxExpense(parseFloat(max.toFixed(2)));
+      }
     }
   };
 
@@ -142,7 +147,7 @@ const Home = () => {
                 className={`${styles["col"]} ${styles["col-2"]}`}
                 data-label="Date"
               >
-                {operation.createdAt}
+                {operation.updatedAt}
               </div>
               <div
                 className={`${styles["col"]} ${styles["col-3"]}`}

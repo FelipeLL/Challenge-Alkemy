@@ -62,7 +62,7 @@ const Expense = () => {
                 className={`${styles["col"]} ${styles["col-3"]}`}
                 data-label="Date"
               >
-                {operation.createdAt}
+                {operation.updatedAt}
               </div>
               <div
                 className={`${styles["col"]} ${styles["col-4"]}`}

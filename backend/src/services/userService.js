@@ -2,6 +2,8 @@ import { verifyEmailExist, createNewUser } from "../Dao/userDao.js"
 import { hashPassword, comparePassword } from "../utils/hashPassword.js"
 import { getToken } from "../utils/getToken.js"
 import Config from "../config/environment.js"
+import jwt from "jsonwebtoken";
+import { promisify } from "util";
 
 export const create = async (email, password) => {
     let existEmail = await verifyEmailExist(email)
@@ -22,7 +24,8 @@ export const login = async (email, password) => {
         throw "Email/password are incorrect"
     } else {
         let isOnline = true;
-        const token = await getToken(existEmail.id)
+        console.log(existEmail.ID_user);
+        const token = await getToken(existEmail.ID_user)
 
         const cookiesOptions = {
             expires: new Date(
@@ -38,5 +41,15 @@ export const login = async (email, password) => {
         return { isOnline, cookiesOptions, token }
     }
 
+
+}
+
+export const read = async (token) => {
+
+    const decodify = await promisify(jwt.verify)(
+        token,
+        Config.jwtSecret,
+    );
+    return { isToken: true, idUser: decodify.id }
 
 }

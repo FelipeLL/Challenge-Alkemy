@@ -9,6 +9,7 @@ import Expense from './components/Expense';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import UserProvider from './context/UserProvider';
+import AddOperation from './components/AddOperation';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
               <Route index element={<Home />} />
               <Route path='/management/income' element={<Income />} />
               <Route path='/management/expense' element={<Expense />} />
+              <Route path='/management/add' element={<AddOperation />} />
             </Route>
           </Route>
 

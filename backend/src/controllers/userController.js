@@ -1,4 +1,4 @@
-import { create, login } from "../services/userService.js"
+import { create, login, read } from "../services/userService.js"
 
 export const createUser = async (req, res) => {
     try {
@@ -24,7 +24,8 @@ export const loginUser = async (req, res) => {
 export const readToken = async (req, res) => {
     try {
         if (req.cookies.jwt) {
-            res.json({ isToken: true });
+            let results = await read(req.cookies.jwt)
+            res.json(results);
         } else {
             res.json({ isToken: false });
         }
