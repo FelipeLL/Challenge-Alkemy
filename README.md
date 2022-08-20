@@ -56,4 +56,4 @@ START THE PROJECT
 ----------------------------
 
 Deploy with Heroku and Netlify
-**URL :** https://alkemychallenge.netlify.app/
+**URL :** https://jfelipealkemychallenge.netlify.app/
