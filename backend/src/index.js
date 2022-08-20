@@ -22,7 +22,7 @@ app.use("/users", userRoute)
 app.use("/operations", operationRoute)
 
 app.listen(Config.port, () => {
-    console.log(`server listening on port: ${process.env.PORT}`);
+    console.log(`server listening on port: ${Config.port}`);
 })
 
 try {
