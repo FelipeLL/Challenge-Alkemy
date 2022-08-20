@@ -3,9 +3,9 @@ import { createOperation, getAllOperations, removeOperation, updateOperation, ge
 
 const router = express.Router()
 
-router.get("/", getAllOperations)
-router.get("/incomes", getAllOperationsIncomes)
-router.get("/expenses", getAllOperationsExpenses)
+router.get("/getAll/:id", getAllOperations)
+router.get("/incomes/:id", getAllOperationsIncomes)
+router.get("/expenses/:id", getAllOperationsExpenses)
 router.post("/create", createOperation)
 // router.post("/getnote/:id", getOneNote)
 router.delete("/remove/:id", removeOperation)

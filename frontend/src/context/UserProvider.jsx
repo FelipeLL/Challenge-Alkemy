@@ -32,6 +32,7 @@ const UserProvider = ({ children }) => {
         upload,
         setUpload,
         idUser,
+        setIdUser,
       }}
     >
       {children}

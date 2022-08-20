@@ -6,6 +6,9 @@ import { formValidate } from "../utilities/formValidate";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../context/UserProvider";
 import { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+import { alertInfo } from "../utilities/Alerts";
+
 const EditModal = ({ showEditModal, setShowEditModal, idOperation }) => {
   const { setUpload } = useContext(UserContext);
 
@@ -22,6 +25,7 @@ const EditModal = ({ showEditModal, setShowEditModal, idOperation }) => {
       await axios.put(URI, data);
       setUpload(true);
       setShowEditModal(false);
+      alertInfo("Operation has been successfully updated");
     } catch (error) {
       console.log("error");
     }
@@ -87,6 +91,7 @@ const EditModal = ({ showEditModal, setShowEditModal, idOperation }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

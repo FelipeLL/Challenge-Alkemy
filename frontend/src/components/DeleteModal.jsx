@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../context/UserProvider";
 import { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+import { alertInfo } from "../utilities/Alerts";
 
 const DeleteModal = ({ showDeleteModal, setShowDeleteModal, idOperation }) => {
   const { setUpload } = useContext(UserContext);
@@ -13,6 +15,7 @@ const DeleteModal = ({ showDeleteModal, setShowDeleteModal, idOperation }) => {
     await axios.delete(URI);
     setUpload(true);
     setShowDeleteModal(false);
+    alertInfo("Operation has been successfully deleted");
   };
 
   return (
@@ -54,6 +57,7 @@ const DeleteModal = ({ showDeleteModal, setShowDeleteModal, idOperation }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

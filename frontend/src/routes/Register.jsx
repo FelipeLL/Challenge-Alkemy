@@ -1,10 +1,13 @@
 import styles from "../styles/register.module.css";
+import "react-toastify/dist/ReactToastify.css";
 import logo from "../images/logoManagement.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
 import FormError from "../components/FormError";
+import { ToastContainer } from "react-toastify";
+import { alertError, alertSuccess } from "../utilities/Alerts";
 
 const Register = () => {
   const {
@@ -31,8 +34,9 @@ const Register = () => {
         password: data.password,
       };
       const res = await axios.post(URI, user);
+      alertSuccess(`Account has been successfully created`);
     } catch (error) {
-      console.log(error.response.data);
+      alertError(error.response.data);
     }
   };
 
@@ -99,7 +103,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };

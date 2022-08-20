@@ -7,16 +7,25 @@ import {
   faArrowTrendDown,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../context/UserProvider";
+
 const Home = () => {
   const [operations, setOperations] = useState([]);
   const [maxIncome, setMaxIncome] = useState(0);
   const [maxExpense, setMaxExpense] = useState(0);
   const [balance, setBalance] = useState(0);
+  const { idUser, setIdUser } = useContext(UserContext);
 
   useEffect(() => {
-    getOperations();
+    readToken();
   }, []);
+
+  useEffect(() => {
+    if (idUser) {
+      getOperations();
+    }
+  }, [idUser]);
 
   useEffect(() => {
     getMaxAmountIncome();
@@ -25,8 +34,19 @@ const Home = () => {
     setBalance((maxIncome - maxExpense).toFixed(2));
   }, [operations]);
 
+  const readToken = async () => {
+    const res = await axios({
+      method: "get",
+      url: "http://localhost:5000/users",
+      withCredentials: true,
+    });
+    if (res.data.isToken) {
+      setIdUser(res.data.idUser);
+    }
+  };
+
   const getOperations = async () => {
-    const URI = "http://localhost:5000/operations";
+    const URI = `http://localhost:5000/operations/getAll/${idUser}`;
     const res = await axios.get(URI);
     setOperations(res.data);
   };
@@ -51,7 +71,6 @@ const Home = () => {
         .map((item) => item.amount);
 
       if (expenses.length !== 0) {
-        console.log(expenses);
         const max = expenses.reduce((acc, current) => acc + current);
         setMaxExpense(parseFloat(max.toFixed(2)));
       }

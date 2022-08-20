@@ -3,11 +3,13 @@ import axios from "axios";
 import FormError from "../components/FormError";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../context/UserProvider";
+import { ToastContainer } from "react-toastify";
+import { alertSuccess, alertError } from "../utilities/Alerts";
 
 const AddOperation = () => {
-  const { idUser, setUpload } = useContext(UserContext);
+  const { setUpload, idUser } = useContext(UserContext);
 
   const {
     register,
@@ -27,8 +29,9 @@ const AddOperation = () => {
       };
       axios.post(URI, operation);
       setUpload(true);
+      alertSuccess("Operation has been successfully created");
     } catch (error) {
-      console.log(error);
+      alertError("error");
     }
   };
 
@@ -101,6 +104,7 @@ const AddOperation = () => {
           <button>Add</button>
         </span>
       </form>
+      <ToastContainer />
     </div>
   );
 };

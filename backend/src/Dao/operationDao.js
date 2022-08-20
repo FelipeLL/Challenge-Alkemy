@@ -1,26 +1,31 @@
 import OperationModel from "../models/OperationModel.js"
 
-export const getAllOperations = async () => {
+export const getAllOperations = async (id) => {
     let results = await OperationModel.findAll({
         limit: 10,
         order: [['createdAt', 'DESC']],
-    })
-    return results
-}
-
-export const getAllOperationsIncomes = async () => {
-    let results = await OperationModel.findAll({
         where: {
-            type: "income"
+            ID_user: id
         }
     })
     return results
 }
 
-export const getAllOperationsExpenses = async () => {
+export const getAllOperationsIncomes = async (id) => {
     let results = await OperationModel.findAll({
         where: {
-            type: "expense"
+            type: "income",
+            ID_user: id
+        }
+    })
+    return results
+}
+
+export const getAllOperationsExpenses = async (id) => {
+    let results = await OperationModel.findAll({
+        where: {
+            type: "expense",
+            ID_user: id
         }
     })
     return results

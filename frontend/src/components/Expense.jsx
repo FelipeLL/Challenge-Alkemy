@@ -11,11 +11,11 @@ const Expense = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [operations, setOperations] = useState([]);
   const [idOperation, setIdOperation] = useState([]);
-  const { upload, setUpload } = useContext(UserContext);
+  const { upload, setUpload, idUser } = useContext(UserContext);
 
   useEffect(() => {
     const getOperations = async () => {
-      const URI = "http://localhost:5000/operations/expenses";
+      const URI = `http://localhost:5000/operations/expenses/${idUser}`;
       const res = await axios.get(URI);
       setOperations(res.data);
       setUpload(false);

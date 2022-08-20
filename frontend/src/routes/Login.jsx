@@ -1,4 +1,5 @@
 import styles from "../styles/login.module.css";
+import logo from "../images/logoManagement.svg";
 import axios from "axios";
 import FormError from "../components/FormError";
 import { useContext, useEffect } from "react";
@@ -6,7 +7,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { useForm } from "react-hook-form";
 import { formValidate } from "../utilities/formValidate";
-import logo from "../images/logoManagement.svg";
+import { ToastContainer } from "react-toastify";
+import { alertError } from "../utilities/Alerts";
 
 const Login = () => {
   const { online, setOnline } = useContext(UserContext);
@@ -34,7 +36,7 @@ const Login = () => {
       });
       setOnline(res.data.results.isOnline);
     } catch (error) {
-      console.log(error.response.data);
+      alertError(error.response.data);
     }
   };
 
@@ -96,6 +98,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

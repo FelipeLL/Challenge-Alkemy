@@ -2,7 +2,7 @@ import { getAll, create, remove, update, getAllIncomes, getAllExpenses } from ".
 
 export const getAllOperations = async (req, res) => {
     try {
-        let operations = await getAll()
+        let operations = await getAll(req.params.id)
         res.json(operations)
     } catch (error) {
         res.status(500).json({ error: error })
@@ -11,7 +11,7 @@ export const getAllOperations = async (req, res) => {
 
 export const getAllOperationsIncomes = async (req, res) => {
     try {
-        let operations = await getAllIncomes()
+        let operations = await getAllIncomes(req.params.id)
         res.json(operations)
     } catch (error) {
         res.status(500).json({ error: error })
@@ -20,7 +20,7 @@ export const getAllOperationsIncomes = async (req, res) => {
 
 export const getAllOperationsExpenses = async (req, res) => {
     try {
-        let operations = await getAllExpenses()
+        let operations = await getAllExpenses(req.params.id)
         res.json(operations)
     } catch (error) {
         res.status(500).json({ error: error })
